@@ -1,7 +1,11 @@
-# WXT + Vue 3
+## Setup guide
 
-This template should help get you started developing with Vue 3 in WXT.
+- git clone https://github.com/johnson-jnr/youtube-custom-settings-ext.git
+- cd youtube-custom-settings-ext
+- npm install
 
-## Recommended IDE Setup
+### Build
+- npm run build or npm run build:firefox (for firefox)
 
--   [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Run locally
+- npm run dev or npm run dev:firefox (for firefox)

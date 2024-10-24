@@ -4,8 +4,8 @@ import vue from '@vitejs/plugin-vue';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
     manifest: {
-        name: 'Custom settings for YouTube',
-        description: 'Allows you to focus while watching youtube',
+        name: 'Simple Custom settings for YouTube (Hide Sidebar, comments and more)',
+        description: 'Customize your YouTube experience with settings and features designed to minimize unnecessary distractions',
         version: '0.9.0',
         permissions: ['webNavigation', 'tabs', 'storage', 'scripting'],
         host_permissions: ['*://*.youtube.com/*'],
