@@ -23,29 +23,6 @@ export default defineContentScript({
             initNavigationFocusMode();
         }
 
-        function initAutoPlayFocus(): void {
-            if (util.getCurrentUrl().includes('watch')) {
-                enableAutoPlayFocusMode();
-            } else {
-                cleanupTimer();
-            }
-        }
-
-        function cleanupTimer(): void {
-            if (!timeoutID) return;
-            clearTimeout(timeoutID);
-            timeoutID = null;
-        }
-
-        async function enableAutoPlayFocusMode(): Promise<void> {
-            const isActive = await store.getStoreItem(StoreItemKey.DisableAutoPlay);
-            setupAutoPlayFocusMode(isActive);
-
-            storage.watch<boolean>(`local:${StoreItemKey.DisableAutoPlay}`, (val: boolean | null) => {
-                setupAutoPlayFocusMode(val);
-            });
-        }
-
         async function initSidebarFocusMode(): Promise<void> {
             const isActive = await store.getStoreItem(StoreItemKey.HideSidebar);
             setupSidebarFocusMode(isActive);
@@ -86,6 +63,19 @@ export default defineContentScript({
             storage.watch<boolean>(`local:${StoreItemKey.HideEndNav}`, (val: boolean | null) => {
                 setupNavigationFocusMode(val);
             });
+        }
+
+        async function initAutoPlayFocus(): Promise<void> {
+            if (util.getCurrentUrl().includes('watch')) {
+                const isActive = await store.getStoreItem(StoreItemKey.DisableAutoPlay);
+                setupAutoPlayFocusMode(isActive);
+
+                storage.watch<boolean>(`local:${StoreItemKey.DisableAutoPlay}`, (val: boolean | null) => {
+                    setupAutoPlayFocusMode(val);
+                });
+            } else {
+                cleanupTimer();
+            }
         }
 
         function uncheckAutoReplay(retry = 0, maxTimeout = 10): void {
@@ -142,6 +132,12 @@ export default defineContentScript({
             } else {
                 util.removeNavigationFocusClass();
             }
+        }
+
+        function cleanupTimer(): void {
+            if (!timeoutID) return;
+            clearTimeout(timeoutID);
+            timeoutID = null;
         }
 
         function registerEventListener(): void {
