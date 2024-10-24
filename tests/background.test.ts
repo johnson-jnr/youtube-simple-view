@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import background from '~/entrypoints/background';
 import { fakeBrowser } from 'wxt/testing';
 import { StoreItemKey } from '@/utils/enum';
