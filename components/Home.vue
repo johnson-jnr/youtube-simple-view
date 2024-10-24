@@ -82,7 +82,7 @@ storage.watch(`local:${StoreItemKey.GlobalActive}`, (val: boolean | null) => {
             @toggle="toggleAutoPlay"
         />
         <Toggle class="mb-4" label="Hide sidebar" :isActive="isActive" v-model="hideSidebar" @toggle="toggleSidebar" />
-        <Toggle class="mb-4" label=" Hide comment" :isActive="isActive" v-model="hideComment" @toggle="toggleComment" />
+        <Toggle class="mb-4" label=" Hide comments" :isActive="isActive" v-model="hideComment" @toggle="toggleComment" />
         <Toggle
             class="mb-4"
             label="Hide end-screen suggestions"
