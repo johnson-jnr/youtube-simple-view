@@ -9,3 +9,6 @@
 
 ### Run locally
 - npm run dev or npm run dev:firefox (for firefox)
+
+### Unit Test
+- npm run test
