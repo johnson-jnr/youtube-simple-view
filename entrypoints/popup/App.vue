@@ -25,7 +25,7 @@ watch(model, async (val: boolean | null) => {
 <template>
     <main>
         <div class="text-base pl-4 pr-3 py-3 border-b">
-            <Toggle label="Custom Settings for YouTube" v-model="model" @toggle="toggleSetting">
+            <Toggle label="YouTube Simple View" v-model="model" @toggle="toggleSetting">
                 <template #beforeLabel>
                     <img class="mr-[6px]" src="/assets/setting.svg" alt="" />
                 </template>
