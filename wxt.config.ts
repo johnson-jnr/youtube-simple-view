@@ -5,9 +5,9 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
     manifest: {
         name: 'YouTube Simple View (Hide Sidebar and more)',
-        description: 'Customize your YouTube experience with settings and features to enhance your focus',
+        description: 'Customize your YouTube experience with settings and features to enhance your focus.',
         version: '0.9.1',
-        permissions: ['webNavigation', 'tabs', 'storage', 'scripting'],
+        permissions: ['webNavigation', 'storage', 'scripting'],
         host_permissions: ['*://*.youtube.com/*'],
     },
     imports: {
