@@ -8,11 +8,8 @@ YouTube Simple View is a browser extension that helps you minimize some of the u
 
 ### Setup guide
 
-- git clone https://github.com/johnson-jnr/youtube-simple-view.git
-- cd youtube-custom-settings-ext
+#### Clone and Build
 - npm install
-
-#### Build
 - npm run build or npm run build:firefox (for firefox)
 
 #### Test run locally
