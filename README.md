@@ -4,7 +4,10 @@ YouTube Simple View is a browser extension that helps you minimize some of the u
 
 ## Browsers support
 
-[<img src="./assets/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br/>Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-simple-view/) <br>
+<a href="https://example.com" target="_blank">
+  <img src="./assets/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br/>
+  Firefox
+</a><br><br>
 
 ## Setup guide
 
