@@ -28,14 +28,7 @@ export default defineBackground({
                         });
                     } catch (e) {
                         if (String(e)?.includes('Receiving end does not exist')) {
-                            browser.scripting.executeScript({
-                                target: { tabId: details.tabId },
-                                files: ['content-scripts/content.js'],
-                            });
-                            browser.scripting.insertCSS({
-                                target: { tabId: details.tabId },
-                                files: ['content-scripts/content.css'],
-                            });
+                            injectScriptAndStyle(details.tabId);
                         }
                     }
                 },
@@ -43,6 +36,17 @@ export default defineBackground({
                     url: [{ hostContains: '.youtube.com' }],
                 },
             );
+        }
+
+        function injectScriptAndStyle(tabId: number): void {
+            browser.scripting.executeScript({
+                target: { tabId },
+                files: ['content-scripts/content.js'],
+            });
+            browser.scripting.insertCSS({
+                target: { tabId},
+                files: ['content-scripts/content.css'],
+            });
         }
 
         function registerGetStoreItemListener() {

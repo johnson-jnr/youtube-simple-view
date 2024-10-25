@@ -78,15 +78,15 @@ export default defineContentScript({
             }
         }
 
-        function uncheckAutoReplay(retry = 0, maxTimeout = 10): void {
-            if (retry > maxTimeout) {
+        function uncheckAutoReplay(retries = 10): void {
+            if (retries < 0) {
                 cleanupTimer();
                 return;
             }
 
             if (!util.isAutoPlayBtnInteractive()) {
                 timeoutID = setTimeout(() => {
-                    uncheckAutoReplay(retry + 1);
+                    uncheckAutoReplay(retries - 1);
                 }, 1000);
             } else {
                 if (util.isAutoPlayBtnChecked()) {
