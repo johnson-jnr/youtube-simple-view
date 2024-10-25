@@ -1,6 +1,6 @@
 ## Setup guide
 
-- git clone https://github.com/johnson-jnr/youtube-custom-settings-ext.git
+- git clone https://github.com/johnson-jnr/youtube-simple-view.git
 - cd youtube-custom-settings-ext
 - npm install
 
