@@ -3,6 +3,7 @@ export enum StoreItemKey {
     DisableAutoPlay = 'disableAutoPlay',
     HideSidebar = 'hideSidebar',
     HideComment = 'hideComment',
-    HideEndScreens = 'hideInVideoSuggestions',
-    HideEndNav = 'hideInVideoNavigation'
+    HideYTSuggestions = 'hideYTSuggestions',
+    HideChannelSuggestions = 'hideChannelSuggestions',
+    HideEndScreenNav = 'hideEndScreenNav'
 }

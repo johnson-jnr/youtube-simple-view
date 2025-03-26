@@ -41,12 +41,20 @@ export default function ytUtil() {
         document.documentElement.classList.remove('yt-comment-focus');
     };
 
-    const addSuggestionsFocusClass = () => {
+    const addYTSuggestionsFocusClass = () => {
         document.documentElement.classList.add('yt-suggestions-focus');
     };
 
-    const removeSuggestionsFocusClass = () => {
+    const removeYTSuggestionsFocusClass = () => {
         document.documentElement.classList.remove('yt-suggestions-focus');
+    };
+
+    const addChannelSuggestionsFocusClass = () => {
+        document.documentElement.classList.add('yt-channel-suggestions-focus');
+    };
+
+    const removeChannelSuggestionsFocusClass = () => {
+        document.documentElement.classList.remove('yt-channel-suggestions-focus');
     };
 
     const addNavigationFocusClass = () => {
@@ -74,7 +82,9 @@ export default function ytUtil() {
         removeSidebarFocusClass,
         addCommentFocusClass,
         removeCommentFocusClass,
-        addSuggestionsFocusClass,
-        removeSuggestionsFocusClass,
+        addYTSuggestionsFocusClass,
+        removeYTSuggestionsFocusClass,
+        addChannelSuggestionsFocusClass,
+        removeChannelSuggestionsFocusClass
     };
 }

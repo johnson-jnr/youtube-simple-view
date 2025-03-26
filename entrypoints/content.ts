@@ -19,7 +19,8 @@ export default defineContentScript({
             initAutoPlayFocus();
             initSidebarFocusMode();
             initCommentFocusMode();
-            initSuggestionsFocusMode();
+            initYTSuggestionsFocusMode();
+            initChannelSuggestionsFocusMode();
             initNavigationFocusMode();
         }
 
@@ -47,20 +48,29 @@ export default defineContentScript({
             });
         }
 
-        async function initSuggestionsFocusMode(): Promise<void> {
-            const isActive = await store.getStoreItem(StoreItemKey.HideEndScreens);
-            setupSuggestionsFocusMode(isActive);
+        async function initYTSuggestionsFocusMode(): Promise<void> {
+            const isActive = await store.getStoreItem(StoreItemKey.HideYTSuggestions);
+            setupYTSuggestionsFocusMode(isActive);
 
-            storage.watch<boolean>(`local:${StoreItemKey.HideEndScreens}`, (val: boolean | null) => {
-                setupSuggestionsFocusMode(val);
+            storage.watch<boolean>(`local:${StoreItemKey.HideYTSuggestions}`, (val: boolean | null) => {
+                setupYTSuggestionsFocusMode(val);
+            });
+        }
+
+        async function initChannelSuggestionsFocusMode(): Promise<void> {
+            const isActive = await store.getStoreItem(StoreItemKey.HideChannelSuggestions);
+            setupChannelSuggestionsFocusMode(isActive);
+
+            storage.watch<boolean>(`local:${StoreItemKey.HideChannelSuggestions}`, (val: boolean | null) => {
+                setupChannelSuggestionsFocusMode(val);
             });
         }
 
         async function initNavigationFocusMode(): Promise<void> {
-            const isActive = await store.getStoreItem(StoreItemKey.HideEndNav);
+            const isActive = await store.getStoreItem(StoreItemKey.HideEndScreenNav);
             setupNavigationFocusMode(isActive);
 
-            storage.watch<boolean>(`local:${StoreItemKey.HideEndNav}`, (val: boolean | null) => {
+            storage.watch<boolean>(`local:${StoreItemKey.HideEndScreenNav}`, (val: boolean | null) => {
                 setupNavigationFocusMode(val);
             });
         }
@@ -118,11 +128,19 @@ export default defineContentScript({
             }
         }
 
-        function setupSuggestionsFocusMode(isActive: boolean | null): void {
+        function setupYTSuggestionsFocusMode(isActive: boolean | null): void {
             if (isActive) {
-                util.addSuggestionsFocusClass();
+                util.addYTSuggestionsFocusClass();
             } else {
-                util.removeSuggestionsFocusClass();
+                util.removeYTSuggestionsFocusClass();
+            }
+        }
+
+        function setupChannelSuggestionsFocusMode(isActive: boolean | null): void {
+            if (isActive) {
+                util.addChannelSuggestionsFocusClass();
+            } else {
+                util.removeChannelSuggestionsFocusClass();
             }
         }
 
