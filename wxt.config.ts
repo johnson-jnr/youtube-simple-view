@@ -5,8 +5,8 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
     manifest: {
         name: 'YouTube Simple View: Hide distractions & more',
-        description: 'Focus tool for YouTube: control distracting elements and autoplay settings to stay focused.',
-        version: '0.9.3',
+        description: 'Focus tool for YouTube: control distracting elements settings to stay focused.',
+        version: '0.9.4',
         permissions: ['webNavigation', 'storage', 'scripting'],
         host_permissions: ['*://*.youtube.com/*'],
     },
