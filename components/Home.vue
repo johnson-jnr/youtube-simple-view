@@ -96,14 +96,14 @@ storage.watch(`local:${StoreItemKey.GlobalActive}`, (val: boolean | null) => {
         <Toggle class="mb-4" label="Hide comments" :isActive="isActive" v-model="hideComment" @toggle="toggleComment" />
         <Toggle
             class="mb-4"
-            label="Hide channel end-screen elements"
+            label="Hide end-screen channel overlays"
             :isActive="isActive"
             v-model="hideChannelSuggestions"
             @toggle="toggleChannelSuggestions"
         />
         <Toggle
             class="mb-4"
-            label="Hide YT end-screen suggestions"
+            label="Hide end-screen YT suggestions"
             :isActive="isActive"
             v-model="hideYTSuggestions"
             @toggle="toggleYTSuggestions"
