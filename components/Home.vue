@@ -9,16 +9,18 @@ const store = ytStore();
 let disableAutoPlay = ref<boolean | null>(null);
 let hideComment = ref<boolean | null>(null);
 let hideSidebar = ref<boolean | null>(null);
-let hideInVideoSuggestions = ref<boolean | null>(null);
-let hideInVideoNavigation = ref<boolean | null>(null);
+let hideYTSuggestions = ref<boolean | null>(null);
+let hideChannelSuggestions = ref<boolean | null>(null);
+let hideEndScreenNav = ref<boolean | null>(null);
 let isActive = ref<boolean | null>(null);
 
 onMounted(async () => {
     disableAutoPlay.value = await store.getStoreItem(StoreItemKey.DisableAutoPlay);
     hideSidebar.value = await store.getStoreItem(StoreItemKey.HideSidebar);
     hideComment.value = await store.getStoreItem(StoreItemKey.HideComment);
-    hideInVideoSuggestions.value = await store.getStoreItem(StoreItemKey.HideEndScreens);
-    hideInVideoNavigation.value = await store.getStoreItem(StoreItemKey.HideEndNav);
+    hideYTSuggestions.value = await store.getStoreItem(StoreItemKey.HideYTSuggestions);
+    hideChannelSuggestions.value = await store.getStoreItem(StoreItemKey.HideChannelSuggestions);
+    hideEndScreenNav.value = await store.getStoreItem(StoreItemKey.HideEndScreenNav);
     isActive.value = await store.getStoreItem(StoreItemKey.GlobalActive);
 });
 
@@ -34,12 +36,16 @@ function toggleAutoPlay() {
     disableAutoPlay.value = !disableAutoPlay.value;
 }
 
-function toggleSuggestions() {
-    hideInVideoSuggestions.value = !hideInVideoSuggestions.value;
+function toggleYTSuggestions() {
+    hideYTSuggestions.value = !hideYTSuggestions.value;
+}
+
+function toggleChannelSuggestions() {
+    hideChannelSuggestions.value = !hideChannelSuggestions.value;
 }
 
 function toggleNavigation() {
-    hideInVideoNavigation.value = !hideInVideoNavigation.value;
+    hideEndScreenNav.value = !hideEndScreenNav.value;
 }
 
 watch(disableAutoPlay, (val: boolean | null) => {
@@ -54,12 +60,16 @@ watch(hideComment, (val: boolean | null) => {
     store.updateStoreItem(StoreItemKey.HideComment, val);
 });
 
-watch(hideInVideoSuggestions, (val: boolean | null) => {
-    store.updateStoreItem(StoreItemKey.HideEndScreens, val);
+watch(hideYTSuggestions, (val: boolean | null) => {
+    store.updateStoreItem(StoreItemKey.HideYTSuggestions, val);
 });
 
-watch(hideInVideoNavigation, (val: boolean | null) => {
-    store.updateStoreItem(StoreItemKey.HideEndNav, val);
+watch(hideChannelSuggestions, (val: boolean | null) => {
+    store.updateStoreItem(StoreItemKey.HideChannelSuggestions, val);
+});
+
+watch(hideEndScreenNav, (val: boolean | null) => {
+    store.updateStoreItem(StoreItemKey.HideEndScreenNav, val);
 });
 
 storage.watch(`local:${StoreItemKey.GlobalActive}`, (val: boolean | null) => {
@@ -67,8 +77,9 @@ storage.watch(`local:${StoreItemKey.GlobalActive}`, (val: boolean | null) => {
     disableAutoPlay.value = val;
     hideSidebar.value = val;
     hideComment.value = val;
-    hideInVideoSuggestions.value = val;
-    hideInVideoNavigation.value = val;
+    hideYTSuggestions.value = val;
+    hideChannelSuggestions.value = val;
+    hideEndScreenNav.value = val;
 });
 </script>
 
@@ -82,18 +93,25 @@ storage.watch(`local:${StoreItemKey.GlobalActive}`, (val: boolean | null) => {
             @toggle="toggleAutoPlay"
         />
         <Toggle class="mb-4" label="Hide sidebar" :isActive="isActive" v-model="hideSidebar" @toggle="toggleSidebar" />
-        <Toggle class="mb-4" label=" Hide comments" :isActive="isActive" v-model="hideComment" @toggle="toggleComment" />
+        <Toggle class="mb-4" label="Hide comments" :isActive="isActive" v-model="hideComment" @toggle="toggleComment" />
         <Toggle
             class="mb-4"
-            label="Hide end-screen suggestions"
+            label="Hide end-screen channel overlays"
             :isActive="isActive"
-            v-model="hideInVideoSuggestions"
-            @toggle="toggleSuggestions"
+            v-model="hideChannelSuggestions"
+            @toggle="toggleChannelSuggestions"
+        />
+        <Toggle
+            class="mb-4"
+            label="Hide end-screen YT suggestions"
+            :isActive="isActive"
+            v-model="hideYTSuggestions"
+            @toggle="toggleYTSuggestions"
         />
         <Toggle
             label="Hide end-screen navigation"
             :isActive="isActive"
-            v-model="hideInVideoNavigation"
+            v-model="hideEndScreenNav"
             @toggle="toggleNavigation"
         />
     </div>

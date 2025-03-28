@@ -18,16 +18,18 @@ describe('Background Entrypoint', () => {
         const disableAutoPlay = await storage.getItem(`local:${StoreItemKey.DisableAutoPlay}`);
         const hideSidebar = await storage.getItem(`local:${StoreItemKey.HideSidebar}`);
         const hideComment = await storage.getItem(`local:${StoreItemKey.HideComment}`);
-        const hideInVideoSuggestions = await storage.getItem(`local:${StoreItemKey.HideEndScreens}`);
-        const hideInVideoNavigation = await storage.getItem(`local:${StoreItemKey.HideEndNav}`);
+        const hideYTSuggestions = await storage.getItem(`local:${StoreItemKey.HideYTSuggestions}`);
+        const hideChannelSuggestions = await storage.getItem(`local:${StoreItemKey.HideChannelSuggestions}`);
+        const hideEndScreenNav = await storage.getItem(`local:${StoreItemKey.HideEndScreenNav}`);
         const isActive = await storage.getItem(`local:${StoreItemKey.GlobalActive}`);
 
         expect(
             disableAutoPlay &&
             hideSidebar &&
             hideComment &&
-            hideInVideoSuggestions &&
-            hideInVideoNavigation &&
+            hideYTSuggestions &&
+            hideChannelSuggestions &&
+            hideEndScreenNav &&
             isActive,
         ).toBeTruthy;
     });

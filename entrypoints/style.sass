@@ -1,22 +1,27 @@
-.yt-sidebar-focus .watch-root-element:not([hidden]) 
-    #primary
-        left: 50%
-        right: 50%
-        margin: 0 
-        padding: 24px
-        transform: translateX(-50%)
-        position: relative
-    #secondary 
-        left: -100vw
-    #secondary-inner
-        display: none
+.yt-sidebar-focus
+    #player
+        text-align: -webkit-center
+        justify-items: center
     #info-container
         margin: 0 auto
-    #related
-        display: none
+    .watch-root-element:not([hidden]) 
+        #primary
+            left: 50%
+            margin: 0 
+            padding: 24px
+            transform: translateX(-50%)
+            position: relative
+        #secondary 
+            left: -100vw
+        #secondary-inner
+            display: none
+        #info-container
+            margin: 0 auto
+        #related
+            display: none
 
-    #columns.ytd-watch-flexy
-        justify-content: normal !important
+        #columns.ytd-watch-flexy
+            justify-content: normal !important
 
 .yt-comment-focus .watch-root-element:not([hidden]) 
     #comments 
@@ -25,7 +30,9 @@
 .yt-suggestions-focus .watch-root-element:not([hidden]) 
     .ytp-player-content .ytp-endscreen-content 
         display: none
-    .ytp-ce-element.ytp-ce-element-show:not(.ytp-ce-channel)
+
+.yt-channel-suggestions-focus .watch-root-element:not([hidden]) 
+    .ytp-ce-element.ytp-ce-element-show
         display: none
     
 .yt-navigation-focus .watch-root-element:not([hidden]) 

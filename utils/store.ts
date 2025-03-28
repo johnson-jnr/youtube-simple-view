@@ -7,8 +7,9 @@ export default function ytStore() {
             [StoreItemKey.DisableAutoPlay]: null,
             [StoreItemKey.HideSidebar]: null,
             [StoreItemKey.HideComment]: null,
-            [StoreItemKey.HideEndScreens]: null,
-            [StoreItemKey.HideEndNav]: null,
+            [StoreItemKey.HideYTSuggestions]: null,
+            [StoreItemKey.HideChannelSuggestions]: null,
+            [StoreItemKey.HideEndScreenNav]: null,
         };
         return store;
     };
