@@ -6,7 +6,7 @@ export default defineConfig({
     manifest: {
         name: 'YouTube Simple View: Hide distractions & more',
         description: 'Focus tool for YouTube: control distracting elements settings to stay focused.',
-        version: '0.9.4',
+        version: '0.9.5',
         permissions: ['webNavigation', 'storage', 'scripting'],
         host_permissions: ['*://*.youtube.com/*'],
     },
